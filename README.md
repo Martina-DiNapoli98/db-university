@@ -1,6 +1,6 @@
 ## Modellizzare la struttura di un database per memorizzare tutti i dati riguardanti una università:
 sono presenti diversi **Dipartimenti** (es.: Lettere e Filosofia, Matematica, Ingegneria ecc.);
-ogni Dipartimento offre più **Corsi di Laurea** (es.: Civiltà e Letterature Classiche, Informatica, Ingegneria Elettronica ecc..)
+ogni **Dipartimento** offre più **Corsi di Laurea** (es.: Civiltà e Letterature Classiche, Informatica, Ingegneria Elettronica ecc..)
 ogni **Corso di Laurea** prevede diversi **Corsi** (es.: Letteratura Latina, Sistemi Operativi 1, Analisi Matematica 2 ecc.);
 ogni **Corso** può essere tenuto da diversi **Insegnanti**;
 ogni **Corso** prevede più **appelli d'Esame**;
@@ -10,45 +10,45 @@ per ogni **appello d'Esame** a cui lo **Studente** ha partecipato, è necessario
 
 # University
 
-## Dipartimento 
-id: INT PRIMARY KEY AUTO_INCREMENT
-Name: VARCHAR(255)	NOTNULL
-Course_id: FOREIGN KEY - BIGINT - NOTNULL
+## Departement 
+id: INT - PRIMARY KEY - AUTO_INCREMENT
+Name: VARCHAR(255) - NOTNULL
+subject_id: FOREIGN KEY - BIGINT - NOTNULL
 
 
 ## DegreeProgram
-id:	INT	PRIMARY KEY, AUTO_INCREMENT
-id_departement: FOREIGN KEY - BIGINT - NOTNULL
-name:	VARCHAR(50)	NOT NUL
+id:	INT - PRIMARY KEY - AUTO_INCREMENT
+departement_id: FOREIGN KEY - BIGINT - NOTNULL
+name:	VARCHAR(50) - NOT NUL
 
-## Course
-id:	INT	PRIMARY KEY, AUTO_INCREMENT
+## subjects
+id:	INT - PRIMARY KEY - AUTO_INCREMENT
 name:	VARCHAR(50)	NOT NULL
 id_teachers: FOREIGN KEY - BIGINT - NOTNULL
 id_departement: FOREIGN KEY - BIGINT - NOTNULL
 
 ## Teacher 
-id:	INT	PRIMARY KEY, AUTO_INCREMENT
+id:	INT - PRIMARY KEY - AUTO_INCREMENT
 name:	VARCHAR(50)	NOT NUL
 last_name: VARCHAR(50) NOT NULL,
-email: VARCHAR(50) NOT NULL,
-id_departement: FOREIGN KEY - BIGINT - NOTNULL
-id_degree_program: FOREIGN KEY - BIGINT - NOTNULL
+email: VARCHAR(10) NOT NULL - UNIQUE
+departement_id: FOREIGN KEY - BIGINT - NOTNULL
+degree_program_id: FOREIGN KEY - BIGINT - NOTNULL
 
-## Exam_Session 
-id:	INT	PRIMARY KEY, AUTO_INCREMENT
+## Exam_session 
+id:	INT - PRIMARY KEY - AUTO_INCREMENT
 student_id:	VARCHAR(50)	NOT NUL
-id_program: FOREIGN KEY - BIGINT - NOTNULL
+program_id: FOREIGN KEY - BIGINT - NOTNULL
 date: DATE
 
 ## Students
-id:	INT	PRIMARY KEY, AUTO_INCREMENT
-name:	VARCHAR(50)	NOT NUL
+id:	INT - PRIMARY KEY - AUTO_INCREMENT
+name:	VARCHAR(50) - NOTNUL
 last_name:VARCHAR(50) NOT NULL,
-student_number: VARCHAR(10) NOTNULL
+student_number: VARCHAR(10) - NOTNULL - UNIQUE
 degree_program_id: FOREIGN KEY - BIGINT - NOTNULL
 year: YEAR
 
 ## Vote
-id:	INT	PRIMARY KEY, AUTO_INCREMENT
-name_student:	VARCHAR(50)	NOT NUL
+id:	INT - PRIMARY KEY - AUTO_INCREMENT
+student_id:	VARCHAR(50)	- NOTNUL
