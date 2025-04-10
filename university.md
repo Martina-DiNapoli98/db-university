@@ -43,6 +43,11 @@ WHERE level = 'magistrale';
 
 
 7. Da quanti dipartimenti è composta l'università? (12)
+
+SELECT * 
+FROM university_db.departments
+
+
 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
 :puntare_a_destra: Cosa devi consegnare?
 Dopo aver testato le vostre query con MySQL Workbench, riportatele in un file txt o md e caricatelo nella vostra repo.
