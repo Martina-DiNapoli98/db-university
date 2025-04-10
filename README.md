@@ -38,7 +38,7 @@ degree_program_id: FOREIGN KEY - BIGINT - NOTNULL
 ## Exam_session 
 id:	INT - PRIMARY KEY - AUTO_INCREMENT
 student_id:	VARCHAR(50)	NOT NUL
-program_id: FOREIGN KEY - BIGINT - NOTNULL
+degree_program_id: FOREIGN KEY - BIGINT - NOTNULL
 date: DATE
 
 ## Students
