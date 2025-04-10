@@ -44,13 +44,13 @@ WHERE level = 'magistrale';
 
 7. Da quanti dipartimenti è composta l'università? (12)
 
-SELECT * 
-FROM university_db.departments
+SELECT COUNT(*)
+FROM university_db.departments;
 
 
 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
 
-SELECT * 
+SELECT COUNT(*)
 FROM university_db.teachers
 WHERE phone IS NULL
 
