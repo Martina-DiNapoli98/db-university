@@ -50,6 +50,9 @@ FROM university_db.departments
 
 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
 
+SELECT * 
+FROM university_db.teachers
+WHERE phone IS NULL
 
 :puntare_a_destra: Cosa devi consegnare?
 Dopo aver testato le vostre query con MySQL Workbench, riportatele in un file txt o md e caricatelo nella vostra repo.
