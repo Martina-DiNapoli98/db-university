@@ -10,13 +10,12 @@ per ogni **appello d'Esame** a cui lo **Studente** ha partecipato, è necessario
 
 # University
 
-## Departement 
+## departement 
 id: INT - PRIMARY KEY - AUTO_INCREMENT
 Name: VARCHAR(255) - NOTNULL
-subject_id: FOREIGN KEY - BIGINT - NOTNULL
 
 
-## DegreeProgram
+## degre_program
 id:	INT - PRIMARY KEY - AUTO_INCREMENT
 departement_id: FOREIGN KEY - BIGINT - NOTNULL
 name:	VARCHAR(50) - NOT NUL
@@ -24,24 +23,25 @@ name:	VARCHAR(50) - NOT NUL
 ## subjects
 id:	INT - PRIMARY KEY - AUTO_INCREMENT
 name:	VARCHAR(50)	NOT NULL
-id_teachers: FOREIGN KEY - BIGINT - NOTNULL
-id_departement: FOREIGN KEY - BIGINT - NOTNULL
+id_degree_program: FOREIGN KEY - BIGINT - NOTNULL
 
-## Teacher 
+## teacher 
 id:	INT - PRIMARY KEY - AUTO_INCREMENT
 name:	VARCHAR(50)	NOT NUL
 last_name: VARCHAR(50) NOT NULL,
 email: VARCHAR(10) NOT NULL - UNIQUE
-departement_id: FOREIGN KEY - BIGINT - NOTNULL
-degree_program_id: FOREIGN KEY - BIGINT - NOTNULL
 
-## Exam_session 
+## subject_teacher
+subject_id: FOREIGN KEY - BIGINT - NOTNULL
+teacher_id: FOREIGN KEY - BIGINT - NOTNULL
+
+
+## exams_sessions
 id:	INT - PRIMARY KEY - AUTO_INCREMENT
-student_id:	VARCHAR(50)	NOT NUL
-degree_program_id: FOREIGN KEY - BIGINT - NOTNULL
+subject_id: FOREIGN KEY - BIGINT - NOTNULL
 date: DATE
 
-## Students
+## students
 id:	INT - PRIMARY KEY - AUTO_INCREMENT
 name:	VARCHAR(50) - NOTNUL
 last_name:VARCHAR(50) NOT NULL,
@@ -49,6 +49,7 @@ student_number: VARCHAR(10) - NOTNULL - UNIQUE
 degree_program_id: FOREIGN KEY - BIGINT - NOTNULL
 year: YEAR
 
-## Vote
-id:	INT - PRIMARY KEY - AUTO_INCREMENT
-student_id:	VARCHAR(50)	- NOTNUL
+## exam_student
+student_id: FOREIGN KEY - BIGINT - NOTNULL
+exam_id: FOREIGN KEY - BIGINT - NOTNULL
+vote: (TINYINT) NOTNULL

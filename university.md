@@ -54,8 +54,7 @@ SELECT *
 FROM university_db.teachers
 WHERE phone IS NULL
 
-:puntare_a_destra: Cosa devi consegnare?
-Dopo aver testato le vostre query con MySQL Workbench, riportatele in un file txt o md e caricatelo nella vostra repo.
+
 
 
 `
